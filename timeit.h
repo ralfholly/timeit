@@ -37,7 +37,7 @@
 // result_matrix = maxtrix_mul(matrix1, matrix2): 0.000031
 
 #define TIMEIT(code) timeit([&]() {code;})
-#define TIMEIT_PRINT(code) cout << #code << ": " << timeit([&]() {code;}) << endl;
+#define TIMEIT_PRINT(code) std::cout << #code << ": " << timeit([&]() {code;}) << std::endl;
 
 inline double timeit(const std::function<void()>& lambda) {
     using steady_clock = std::chrono::steady_clock;
