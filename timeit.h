@@ -34,7 +34,7 @@
 // Example:
 // TIMEIT_PRINT(result_matrix = maxtrix_mul(matrix1, matrix2));
 // Output:
-// result_matrix = maxtrix_mul(matrix1, matrix2): 0.000031
+// result_matrix = maxtrix_mul(matrix1, matrix2): 0.031
 
 #define TIMEIT(code) timeit([&]() {code;})
 #define TIMEIT_PRINT(code) std::cout << #code << ": " << timeit([&]() {code;}) << std::endl;
