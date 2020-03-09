@@ -40,13 +40,12 @@
 #define TIMEIT_PRINT(code) std::cout << #code << ": " << timeit([&]() {code;}) << std::endl;
 
 inline double timeit(const std::function<void()>& lambda) {
-    using steady_clock = std::chrono::steady_clock;
-    auto start = steady_clock::now();
+    using hires_clock = std::chrono::high_resolution_clock;
+    auto start = hires_clock::now();
     lambda();
-    auto end = steady_clock::now();
-    double delta = (end - start).count() * steady_clock::period::num /
-        static_cast<double>(steady_clock::period::den);
-    return delta;
+    auto end = hires_clock::now();
+    auto duration = std::chrono::duration<double, std::milli>(end - start);
+    return duration.count();
 }
 
 #endif

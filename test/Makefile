@@ -22,7 +22,7 @@ override LDLIBS += -lgtest_main -lgtest -lgmock
 
 all: test
 
-$(TARGET): $(TARGET).cpp
+$(TARGET): $(TARGET).cpp ../timeit.h
 
 test: $(TARGET)
 	./$<
